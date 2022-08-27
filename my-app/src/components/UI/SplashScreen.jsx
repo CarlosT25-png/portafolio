@@ -1,8 +1,8 @@
-import LoadingBarStart from './UI/LoadingBarStart';
+import LoadingBarStart from './LoadingBarStart';
 
 import classes from './SplashScreen.module.css';
-import winLogo from '../assets/logo-start.webp';
-import MicLogo from '../assets/microsoft-logo.jpg';
+import winLogo from '../../assets/logo-start.webp';
+import MicLogo from '../../assets/microsoft-logo.jpg';
 
 const SplashScreen = () => {
   return (

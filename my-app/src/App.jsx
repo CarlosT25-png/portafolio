@@ -1,12 +1,22 @@
-import { useState } from 'react'
-import SplashScreen from './components/SplashScreen'
+import { useState, useEffect } from 'react'
+import SplashScreen from './components/UI/SplashScreen';
+import Desktop from './components/main/Desktop';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 6000)
+  }, [])
 
   return (
-    <SplashScreen />
+    <>
+     {showSplash && <SplashScreen />}
+     <Desktop />
+    </>
   )
 }
 

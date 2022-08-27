@@ -4,6 +4,8 @@
   border: 4px solid #f9f3f3;
   border-radius: 7px;
   padding: 0.2rem;
+  overflow: hidden;
+  position: relative;
 }
 
 .container-spinner{
@@ -11,31 +13,30 @@
   height: 100%;
   box-sizing: content-box;
   display: flex;
-  overflow: hidden;
+  animation: run 3s ease-out  infinite;
+  position: absolute;
 }
 
 .container-spinner span {
   height: 100%;
-  width: 1rem;
-  background: rgb(220,227,251);
+  width: 0.8rem;
   background: linear-gradient(180deg, rgb(126, 159, 194) 0%, rgb(49, 52, 88) 100%);
-  animation: leftToRight 3s linear infinite;
 }
 
-.container-spinner span:nth-child(2) {
-  margin-left: 0.5rem;
+.container-spinner span:nth-child(1) {
+  margin-right: .4rem;
 }
 
 .container-spinner span:nth-child(3) {
-  margin-left: 0.5rem;
+  margin-left: .4rem;
 }
 
-@keyframes leftToRight {
+@keyframes run {
   0% {
-    transform: translateX(-50%);
+    left: -10%;
   }
 
   100% {
-    transform: translateX(100%);
+    left: 110%;
   }
 }
