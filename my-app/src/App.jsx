@@ -15,7 +15,7 @@ function App() {
   return (
     <>
      {showSplash && <SplashScreen />}
-     <Desktop />
+     {!showSplash && <Desktop />}
     </>
   )
 }
