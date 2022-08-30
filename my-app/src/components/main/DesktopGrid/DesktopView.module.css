@@ -9,16 +9,11 @@
   row-gap: 15px;
   padding: 1rem;
   position: relative;
+  overflow: hidden;
 }
 
-.frames {
-  position: absolute;
-  z-index: 1;
-  height: 40vh;
-  width: 50vw;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.frame {
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {
