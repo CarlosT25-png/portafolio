@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { foldersActions } from '../../../store/index';
 
 import IconDesktop from '../../UI/IconDesktop';
 import WindowsFolderFrame from '../../UI/WindowsFolderFrame';
@@ -6,28 +9,28 @@ import WindowsFolderFrame from '../../UI/WindowsFolderFrame';
 import classes from './DesktopView.module.css';
 
 const Desktop = (props) => {
-  const [frames, setFrames] = useState([]);
+  const dispatch = useDispatch();
+  const folders = useSelector((state) => state.folders.folders);
 
-  const onCloseHandler = name => {
-    console.log('newFrames');
-    setFrames(prevFrame => {
-      const newFrames = prevFrame.filter(item => item.name !== name);
-      console.log(newFrames);
-      return newFrames;
-    })
-  }
 
-  const projectsHandler = data => {
-    setFrames((prevState) => [<WindowsFolderFrame key={data.name} name={data.name} icon={data.img} onClose={onCloseHandler} />, ...prevState]);
+  const projectsHandler = (data) => {
+    dispatch(
+      foldersActions.add(
+        {
+          item: <WindowsFolderFrame key={data.id} name={data.id} icon={data.img} />
+        }
+      )
+    );
   };
 
   return (
     <>
       <div className={props.className + ' ' + classes['container-grid']}>
-        {frames.length > 0 && frames}
-        <IconDesktop foldersName="CV & Summary" />
-        <IconDesktop foldersName="Info" />
+        {folders.map(folder => folder.item)}
+        <IconDesktop foldersName="CV & Summary" onClick={projectsHandler}/>
+        <IconDesktop foldersName="Info" onClick={projectsHandler} />
         <IconDesktop foldersName="Projects" onClick={projectsHandler} />
+        <IconDesktop type='email' name='Contact Me' onclick={projectsHandler} />
       </div>
     </>
   );

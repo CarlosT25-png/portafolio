@@ -16,7 +16,7 @@ const FooterClock = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setClock(new Date().toLocaleTimeString('en-US', options));
-    }, 60 * 1000);
+    }, 1000);
 
     return () => {
       clearInterval(timer);

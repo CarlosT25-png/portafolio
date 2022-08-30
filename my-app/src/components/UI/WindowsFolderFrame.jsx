@@ -1,11 +1,13 @@
+import { useRef, useState, useLayoutEffect } from 'react';
 import Draggable from 'react-draggable';
+import { useDispatch } from 'react-redux';
 
+import { foldersActions } from '../../store/index';
 import WindowsFrameContent from './WindowsFrameContent';
 
 import classes from './WindowsFolderFrame.module.css';
 
 import winXpLogo from '../../assets/windowsxp.webp';
-import folder from '../../assets/folder.png';
 import back from '../../assets/Back.png';
 import forward from '../../assets/Forward.png';
 import folderUp from '../../assets/Up.png';
@@ -13,19 +15,31 @@ import search from '../../assets/Search.png';
 import folderView from '../../assets/folders.png';
 import folderFrame from '../../assets/folder-view.png';
 
+
 const WindowsFolderFrame = (props) => {
+  const dispatch = useDispatch();
+  const mainFrame = useRef();
+
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    let x = window.innerWidth/2;
+    let y = window.innerHeight/2;
+    setWidth(x - mainFrame.current.offsetWidth/2);
+    setHeight(y -mainFrame.current.offsetHeight/2);
+  }, []);
+
   const closeHandler = () => {
-    console.log('Close')
-    props.onClose(props.name);
+    dispatch(foldersActions.delete(props.name));
   }
 
-
   return (
-    <Draggable handle='#handle'>
-      <div className={classes['main-frame']}>
+    <Draggable defaultPosition={{x: width, y: height}} handle='#handle'>
+      <div ref={mainFrame} className={classes['main-frame']}>
         <div className={classes.head} id='handle'>
           <div>
-            <img src={folder} alt="Windows XP folder - Carlos Torres" />
+            <img src={props.icon} alt="Windows XP folder - Carlos Torres" />
             <h3>{props.name}</h3>
           </div>
           <div>
