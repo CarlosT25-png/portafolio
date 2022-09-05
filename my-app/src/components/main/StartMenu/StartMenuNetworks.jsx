@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import Typewriter from 'typewriter-effect';
 import StartMenuIconA from './StartMenuIconA';
 
 import useAddWindowsFrame from '../../../util/useAddWindowsFrame';
@@ -10,7 +12,7 @@ import cmdLogo from '../../../assets/cmd.png';
 import classes from './StartMenuNetworks.module.css';
 
 const StartMenuNetworks = (props) => {
-  const { addEmailWindows } = useAddWindowsFrame();
+  const { addEmailWindows, addBasicWindowsFrame } = useAddWindowsFrame();
 
   return (
     <div className={props.className + ' ' + classes.container}>
@@ -40,7 +42,55 @@ const StartMenuNetworks = (props) => {
         link="#"
         target=""
       />
-      <StartMenuIconA image={cmdLogo} title="Skills" link="#" target="" />
+      <StartMenuIconA
+        image={cmdLogo}
+        title="Skills"
+        link="#"
+        target=""
+        onClick={addBasicWindowsFrame}
+        content={
+          <div className={classes.console}>
+            Microsoft Windows XP [Version 5.1.2600] <br />
+            &lt;C&gt; Copyright 1985-2001 Microsoft Corp.
+            <br />
+            <br />
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .pasteString('C:\Documents and Settings\Carlos Torres>')
+                  .typeString(' skills.bat')
+                  .pauseFor(2500)
+                  .start();
+              }}
+            />
+            <Typewriter
+            options={{
+              cursor: ''
+            }}
+              onInit={(typewriter) => {
+                typewriter
+                  .pauseFor(2750)
+                  .pasteString(`
+                  <br />
+                  <div class=${classes.text}>
+                    <p>HTML5</p>
+                    <p>CSS</p>
+                    <p>JavaScript</p>
+                    <p>ReactJS</p>
+                    <p>Material UI</p>
+                    <p>Figma</p>
+                    <p>AdobeXD</p>
+                    <p>Firebase</p>
+                    <p>SQL and NoSQL Database</p>
+                    <p>Some NodeJS</p>
+                  </div>`)
+                  .pauseFor(2750)
+                  .start();
+              }}
+            />
+          </div>
+        }
+      />
       <div className={classes.divider + ' ' + classes['margin-top-auto']}></div>
       <div>
         <p>All Programs</p>

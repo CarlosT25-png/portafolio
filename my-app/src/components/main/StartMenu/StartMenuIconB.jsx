@@ -6,10 +6,17 @@ const StartMenuIconB = (props) => {
 
   const onClickHandler = (ev) => {
     ev.preventDefault();
-    props.onClick({
-      id: props.title,
-      img: props.image,
-    });
+    if(props.content){
+      props.onClick({
+        id: props.title,
+        img: props.image,
+      }, props.content);
+    }else{
+      props.onClick({
+        id: props.title,
+        img: props.image,
+      });
+    }
     backropHandler();
   };
 

@@ -3,11 +3,12 @@ import { foldersActions } from '../store/index';
 
 import WindowsMailForm from '../components/UI/WindowsMailForm';
 import WindowsFolderFrame from '../components/UI/WindowsFolderFrame';
+import WindowsBasicFrame from '../components/UI/WindowsBasicFrame';
 
 const useAddWindowsFrame = () => {
   const dispatch = useDispatch();
   
-  const addFolderWindows = (data, contentFolder) => {
+  const addFolderWindows = data => {
     dispatch(
       foldersActions.add({
         item: (
@@ -16,6 +17,18 @@ const useAddWindowsFrame = () => {
       })
     );
   };
+
+  const addBasicWindowsFrame = (data, content) => {
+    dispatch(
+      foldersActions.add({
+        item: (
+          <WindowsBasicFrame key={data.id} name={data.id} icon={data.img}>
+            {content}
+          </WindowsBasicFrame>
+        ),
+      })
+    );
+  }
   
   const addEmailWindows = data=> {
     dispatch(foldersActions.add({item:
@@ -27,7 +40,7 @@ const useAddWindowsFrame = () => {
     dispatch(foldersActions.toggleStartMenu(false));
   }
 
-  return {addFolderWindows, addEmailWindows, backropHandler}
+  return {addFolderWindows, addEmailWindows, backropHandler, addBasicWindowsFrame}
 }
 
 export default useAddWindowsFrame;
