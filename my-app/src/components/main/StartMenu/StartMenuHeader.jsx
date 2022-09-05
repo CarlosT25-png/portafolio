@@ -1,4 +1,4 @@
-import logo from '../../../assets/mylogo.jpeg';
+import logo from '../../../assets/mylogo.webp';
 
 import classes from './StartMenuHeader.module.css';
 

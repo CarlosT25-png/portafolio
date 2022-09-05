@@ -1,32 +1,16 @@
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import { foldersActions } from '../../../store/index';
+import { useSelector } from 'react-redux';
+import useAddWindowsFrame from '../../../util/useAddWindowsFrame';
 
 import IconDesktop from '../../UI/IconDesktop';
-import WindowsFolderFrame from '../../UI/WindowsFolderFrame';
 import StartMenu from '../StartMenu/StartMenu';
 
 import classes from './DesktopView.module.css';
 
 const Desktop = (props) => {
-  const dispatch = useDispatch();
   const folders = useSelector((state) => state.folders.folders);
   const showStartMenu = useSelector((state) => state.folders.showStartMenu);
 
-  const backropHandler = () => {
-    dispatch(foldersActions.toggleStartMenu(false));
-  }
-
-  const projectsHandler = (data) => {
-    dispatch(
-      foldersActions.add({
-        item: (
-          <WindowsFolderFrame key={data.id} name={data.id} icon={data.img} />
-        ),
-      })
-    );
-  };
+  const {addFolderWindows, addEmailWindows, backropHandler} = useAddWindowsFrame();
 
   return (
     <>
@@ -38,10 +22,10 @@ const Desktop = (props) => {
           </>
         )}
         {folders.map((folder) => folder.item)}
-        <IconDesktop foldersName="CV & Summary" onClick={projectsHandler} />
-        <IconDesktop foldersName="Info" onClick={projectsHandler} />
-        <IconDesktop foldersName="Projects" onClick={projectsHandler} />
-        <IconDesktop type="email" name="Contact Me" onclick={projectsHandler} />
+        <IconDesktop foldersName="CV & Summary" onClick={addFolderWindows}/>
+        <IconDesktop foldersName="Info" onClick={addFolderWindows} />
+        <IconDesktop foldersName="Projects" onClick={addFolderWindows} />
+        <IconDesktop type="email" name="Contact Me" onClick={addEmailWindows} />
       </div>
     </>
   );

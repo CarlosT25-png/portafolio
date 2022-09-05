@@ -15,7 +15,6 @@ import search from '../../assets/Search.png';
 import folderView from '../../assets/folders.png';
 import folderFrame from '../../assets/folder-view.png';
 
-
 const WindowsFolderFrame = (props) => {
   const dispatch = useDispatch();
   const mainFrame = useRef();
@@ -77,7 +76,7 @@ const WindowsFolderFrame = (props) => {
             />
           </div>
         </div>
-        <WindowsFrameContent className={classes.content} />
+        <WindowsFrameContent className={classes.content} type={props.name}/>
       </div>
     </Draggable>
   );

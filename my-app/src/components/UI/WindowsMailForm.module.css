@@ -5,8 +5,8 @@
   overflow: hidden;
   position: absolute;
   z-index: 1;
-  height: 58vh;
-  width: 50vw;
+  height: 50vh;
+  width: 30vw;
 
   grid-template-areas: "control control control control"
                        "selection selection selection selection"
@@ -41,6 +41,7 @@
 .head h3 {
   color: white;
   font-weight: 700;
+  margin-left: .25rem;
 }
 
 .head div:last-child {
@@ -110,6 +111,7 @@
 
 .options-tools div {
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 1rem .75rem;
 }

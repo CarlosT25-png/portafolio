@@ -10,6 +10,7 @@
 
   --bshadow-inset-dark-bottom: inset 0 -7px 9px -7px #00000066;
   --bshadow-inset-dark-right:  inset -7px 0 9px -7px #00000066;
+  --bshadow-inset-dark-top: inset 0 7px 9px -7px #00000066;
 
   --text-shadow: 2px 2px 2px #414141;
 }
