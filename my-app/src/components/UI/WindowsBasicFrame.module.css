@@ -32,8 +32,8 @@
 }
 
 .head img {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
 }
 
 .head h3 {
@@ -48,8 +48,8 @@
 }
 
 .head span {
-  height: 25px;
-  width: 25px;
+  height: 2.5rem;
+  width: 2.5rem;
   box-shadow: var(--bshadow-inset-glossy-top);
   display: flex;
   align-items: center;
@@ -72,4 +72,11 @@
 
 .content {
   grid-area: content;
+}
+
+@media screen and (max-width: 768px){
+  .main-frame{
+    height: 45vh;
+    width: 90vw;
+  }
 }

@@ -22,3 +22,9 @@
   color: white;
   text-shadow: var(--text-shadow);
 }
+
+@media screen and (max-width: 768px){
+  .start {
+    width: 20vw;
+  }
+}

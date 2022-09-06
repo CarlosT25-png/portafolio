@@ -21,11 +21,14 @@
   box-shadow: var(--bshadow-inset-glossy-top), var(--bshadow-inset-glossy-left), var(--bshadow-inset-dark-bottom);
 }
 
-
 .time {
   font-size: 1.4rem;
   color: white;
   font-family: Tahoma, sans-serif;
 }
 
-
+@media screen and (max-width: 768px){
+  .clock-container{
+    width: 15vw;
+  }
+}

@@ -28,3 +28,10 @@
 .frame footer {
   grid-area: footer;
 }
+
+@media screen and (max-width: 768px){
+  .frame{
+    width: 70vw;
+    height: 55vh;
+  }
+}

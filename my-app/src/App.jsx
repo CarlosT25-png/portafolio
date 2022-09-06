@@ -13,10 +13,10 @@ function App() {
   }, [])
 
   return (
-    <>
+    <div className='app'>
      {showSplash && <SplashScreen />}
      {!showSplash && <Desktop />}
-    </>
+    </div>
   )
 }
 
