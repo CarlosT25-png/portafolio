@@ -4,7 +4,7 @@ If you want to see my new portafolio please follow the next links
 
 
 
-⚡️ https://carlostorres.dev
+⚡️ https://3d.carlostorres.dev
 
 🧠 https://github.com/CarlosT25-png/portafolio-3d
 
