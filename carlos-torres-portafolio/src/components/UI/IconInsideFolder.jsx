@@ -2,12 +2,12 @@ import useAddWindowsFrame from '../../util/useAddWindowsFrame';
 import classes from './IconInsideFolder.module.css';
 
 const IconInsideFolder = (props) => {
-  const { addBasicWindowsFrame } = useAddWindowsFrame();
+  const { addInternetExplorerFrame } = useAddWindowsFrame();
   const image = require('../../assets/' + props.image + '.webp');
 
   const onButtonClick = () => {
     if (props.content) {
-      addBasicWindowsFrame({
+      addInternetExplorerFrame({
         id: props.title,
         img: image
       }, props.content);
