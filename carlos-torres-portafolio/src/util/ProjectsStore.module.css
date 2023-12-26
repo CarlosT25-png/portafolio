@@ -1,0 +1,29 @@
+.main {
+  background-color: #f3f3f3;
+  padding: 3rem 20rem;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.left-side {
+  background-color: #8A57C2;
+  display: flex;
+  padding: 2rem 1rem;
+}
+
+.left-side img {
+  width: 15rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.left-side div {
+  padding: 0 2rem;
+  color: white;
+}

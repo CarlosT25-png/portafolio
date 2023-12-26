@@ -1,3 +1,5 @@
+import { Dactichat } from "./ProjectsStore";
+
 export const contentFoldersCV = [
   {
     title: 'CV',
@@ -94,6 +96,6 @@ export const contentFolderProjects = [
     logo: 'txt',
     filetype: 'Text Document',
     size: '12 KB',
-    content: <h1>What I currently working</h1>,
+    content: <Dactichat />,
   },
 ];
