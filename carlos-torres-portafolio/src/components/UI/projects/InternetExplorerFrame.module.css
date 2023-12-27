@@ -79,6 +79,7 @@
 .content {
   grid-area: content;
   background-color: white;
+  overflow: scroll;
 }
 
 @media screen and (max-width: 768px){
